@@ -95,13 +95,29 @@ if ($is_post || $is_cli_run) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Database - MySQL Bulk Converter & Importer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Noto Sans Malayalam', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         .card { border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .log-box { background-color: #1e1e1e; color: #d4d4d4; font-family: monospace; font-size: 0.9rem; max-height: 400px; overflow-y: auto; padding: 15px; border-radius: 8px; }
+        .log-box {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'Noto Sans Malayalam', monospace;
+            font-size: 0.9rem;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+            border-radius: 8px;
+        }
         .log-box .log-item { margin-bottom: 4px; }
         .log-box .log-item::before { content: "► "; color: #4ec9b0; }
+        .malayalam-text { font-family: 'Noto Sans Malayalam', sans-serif; }
     </style>
 </head>
 <body>
@@ -162,7 +178,7 @@ if ($is_post || $is_cli_run) {
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card mb-4">
                 <div class="card-header bg-light">
                     <h5 class="mb-0">Database Summary</h5>
                 </div>
@@ -181,6 +197,16 @@ if ($is_post || $is_cli_run) {
                             <span class="badge bg-info rounded-pill"><?= array_sum(array_map(fn($item) => count($item['rows']), $bulk_inserts)) ?></span>
                         </li>
                     </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Malayalam Character Preview Sample (മലയാളം ഫോണ്ട് സാമ്പിൾ)</h5>
+                </div>
+                <div class="card-body malayalam-text">
+                    <p class="mb-1"><strong>സ്ഥാപനം / Company Name:</strong> കസ്തൂർബാ സ്മാരക വായനശാല (KASTUBA SMARAKA VAYANASALA)</p>
+                    <p class="mb-0"><strong>വിലാസം / Address:</strong> ഈസ്റ്റ് നട, ഇളംകുന്നപ്പുഴ, എറണാകുളം (EAST NADA, ELAMKUNNAPUZHA, ERNAKULAM)</p>
                 </div>
             </div>
         </div>
